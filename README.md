@@ -10,13 +10,16 @@ This project will be trained using example [MNIST](https://en.wikipedia.org/wiki
 
 Therefore, the pretrained model just can create digit images. For instance:
 
-Run `python generate.py --text "1"`
+Run `python generate.py --prompt 8`
 
 Output:
 
-<img>
+<img src='https://github.com/user-attachments/assets/64d6c40c-96fa-4306-ae8b-c8a9cb7fc6c3' width=300>
 
-**Note**: For more diverse generated images, please re-train model with a richer dataset.
+
+**Note**:
+- For more diverse generated images, please re-train model with a richer dataset.
+- For more detailed and correct images, please re-train model with a higher number of epochs (> 20 epochs).
 
 ---
 ## 📋 Key Features
@@ -74,7 +77,7 @@ $$x(t+\Delta t) = x(t) + \sigma^2(T-t)\cdot s(x,T-t)\Delta t + \sigma(T-t)\sqrt{
 
 ### **Score Function Learning**
 - Neural networks are trained to predict the noise added during diffusion using the objective:
-$$J = \mathbb{E} \left[ ||s(x_{\text{noised}}, t) \sigma^2(t) + (x_{\text{noised}} - x_0)||^2_2 \right]$$
+$$J = \mathbb{E} \left[\|s(x_{\text{noised}}, t) \sigma^2(t) + (x_{\text{noised}} - x_0)\|^2_2 \right]$$
 
 ---
 
@@ -133,7 +136,7 @@ $$J = \mathbb{E} \left[ ||s(x_{\text{noised}}, t) \sigma^2(t) + (x_{\text{noised
 
 3. Generate samples:
    ```bash
-   python generate.py --text "1"
+   python generate.py --prompt 1
    ```
 
 4. For more manipulation such as training, adjust model, etc; please visit `Stable_Diffusion.ipynb` file.
